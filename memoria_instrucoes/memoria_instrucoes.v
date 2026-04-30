@@ -12,6 +12,7 @@ module memoria_instrucoes (
             rom[i] = 8'h00;
         end
 
+        /*
         // 1º Algoritmo Base
         rom[8'h00] = 8'hD0; // sub R0, R0
         rom[8'h01] = 8'h45; // addi 5
@@ -60,6 +61,7 @@ module memoria_instrucoes (
         rom[8'h4D] = 8'h08; // brzr R2, R0 (if R2==0, jump. But R2=1, NO jump).
         rom[8'h4E] = 8'h71; // jnz 1       (if R0!=0, jump +1 to 0x4F. R0=1, JUMPS).
         rom[8'h4F] = 8'h10; // ji 0        (PC = PC + 0, loop infinito)
+        */
     end
 
     always @(*) begin
