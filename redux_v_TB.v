@@ -15,6 +15,14 @@ module redux_v_TB;
         forever #5 clk = ~clk; // Periodo do clock: 10ns
     end
 
+    initial begin
+        $monitor("Tempo=%0t | PC=%h | Inst=%h | Regs: R0=%h R1=%h R2=%h R3=%h | M[1]=%h",
+                 $time, cpu.current_pc, cpu.instruction, 
+                 cpu.regsys_inst.regs[0], cpu.regsys_inst.regs[1], 
+                 cpu.regsys_inst.regs[2], cpu.regsys_inst.regs[3],
+                 cpu.ram_inst.ram[1]);
+    end
+
     // Parameter to specify which program to run
     // 0: Program 1 (Base Alg - offset 0x00)
     // 1: Program 2 (Memcpy - offset 0x20)
@@ -59,6 +67,7 @@ module redux_v_TB;
     end
 
     // Monitoramento para facilitar visualizacao
+    /*
     always @(posedge clk) begin
         $display("Tempo=%0t | PC=%h | Inst=%h | Regs: R0=%h R1=%h R2=%h R3=%h | M[1]=%h",
                  $time, cpu.current_pc, cpu.instruction, 
@@ -66,5 +75,6 @@ module redux_v_TB;
                  cpu.regsys_inst.regs[2], cpu.regsys_inst.regs[3],
                  cpu.ram_inst.ram[1]);
     end
+    */
 
 endmodule
